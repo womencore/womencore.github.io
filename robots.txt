@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+# 도메인 연결 후 아래 줄의 주석을 풀고 주소를 바꾸세요
+# Sitemap: https://도메인/sitemap.xml
