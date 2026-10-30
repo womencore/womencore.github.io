@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- 도메인이 정해지면 DOMAIN을 실제 주소로 바꾸세요 (예: https://www.womencore.co.kr) -->
+https://womencore.github.io/
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url><loc>https://DOMAIN/</loc><xhtml:link rel="alternate" hreflang="en" href="https://DOMAIN/en/"/></url>
   <url><loc>https://DOMAIN/en/</loc><xhtml:link rel="alternate" hreflang="ko" href="https://DOMAIN/"/></url>
