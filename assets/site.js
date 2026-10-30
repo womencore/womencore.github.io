@@ -32,6 +32,39 @@ var WC_CONFIG = {
     nav.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', function () { nav.classList.remove('open'); }); });
   }
 
+
+  // ===== SNS 최근 소식 =====
+  document.querySelectorAll('.feed[data-feed]').forEach(function (box) {
+    var en = box.getAttribute('data-lang') === 'en';
+    var names = { instagram: 'Instagram', youtube: 'YouTube', blog: en ? 'Naver Blog' : '네이버 블로그' };
+    function fmt(d) { return d.getFullYear() + '.' + String(d.getMonth() + 1).padStart(2, '0') + '.' + String(d.getDate()).padStart(2, '0'); }
+    function ago(d) {
+      var days = Math.floor((Date.now() - d.getTime()) / 86400000);
+      if (days <= 0) return en ? 'today' : '오늘';
+      if (days === 1) return en ? 'yesterday' : '어제';
+      if (days < 30) return en ? days + ' days ago' : days + '일 전';
+      return '';
+    }
+    function esc(t) { var e = document.createElement('i'); e.textContent = t || ''; return e.innerHTML; }
+    fetch(box.getAttribute('data-feed'), { cache: 'no-store' })
+      .then(function (r) { return r.json(); })
+      .then(function (data) {
+        var items = (data.items || []).slice(0, 8);
+        if (!items.length) { box.hidden = true; return; }
+        var latest = new Date(items[0].date);
+        var up = box.parentNode.querySelector('.sns-updated');
+        if (up) up.innerHTML = '<span class="dot"></span>' + up.getAttribute('data-label') + ' <b>' + fmt(latest) + '</b>' + (ago(latest) ? ' · ' + ago(latest) : '');
+        box.innerHTML = items.map(function (it) {
+          var d = new Date(it.date);
+          return '<a class="post" href="' + esc(it.url) + '" target="_blank" rel="noopener">' +
+            (it.image ? '<span class="thumb"><img loading="lazy" src="' + esc(it.image) + '" alt=""></span>' : '<span class="thumb thumb-text">' + esc(names[it.source]) + '</span>') +
+            '<span class="meta"><em class="src src-' + it.source + '">' + esc(names[it.source] || it.source) + '</em><time datetime="' + esc(it.date) + '">' + fmt(d) + '</time></span>' +
+            '<span class="cap">' + esc(it.title) + '</span></a>';
+        }).join('');
+      })
+      .catch(function () { box.hidden = true; });
+  });
+
   // ===== 1분 자가진단 =====
   var quiz = document.getElementById('quiz');
   if (!quiz) return;

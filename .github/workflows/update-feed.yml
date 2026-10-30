@@ -1,0 +1,27 @@
+name: SNS 피드 업데이트
+on:
+  schedule:
+    - cron: "17 21 * * *"   # 매일 한국 시간 오전 6시 17분
+  workflow_dispatch:        # Actions 탭에서 'Run workflow'로 바로 실행
+permissions:
+  contents: write
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: 피드 가져오기
+        env:
+          BEHOLD_URL: "https://feeds.behold.so/1kjMgd1RxDNdu8ajHakv"                        # 인스타그램: Behold JSON 피드 주소를 따옴표 안에
+          YOUTUBE_CHANNEL_ID: "UCb35_Cd6kOPBnxA5Jij4FaQ"
+          NAVER_BLOG_ID: ""                       # 네이버 블로그 아이디 (blog.naver.com/아이디)
+        run: python scripts/update_feed.py
+      - name: 바뀐 내용 저장
+        run: |
+          git config user.name "womencore-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add assets/feed.json
+          git diff --cached --quiet || (git commit -m "SNS 피드 업데이트" && git push)
