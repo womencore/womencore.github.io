@@ -1,3 +1,4 @@
 User-agent: *
 Allow: /
 Sitemap: https://womencore.github.io/sitemap.xml
+Sitemap: https://womencore.github.io/sitemap.txt
