@@ -18,6 +18,13 @@
 <meta property="og:locale" content="ko_KR">
 <link rel="alternate" hreflang="ko" href="https://womencore.github.io/">
 <link rel="alternate" hreflang="en" href="https://womencore.github.io/en/">
+<link rel="icon" href="https://womencore.github.io/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/png" sizes="96x96" href="https://womencore.github.io/assets/favicon-96.png">
+<link rel="icon" type="image/png" sizes="192x192" href="https://womencore.github.io/assets/favicon-192.png">
+<link rel="apple-touch-icon" href="https://womencore.github.io/assets/apple-touch-icon.png">
+<meta name="thumbnail" content="https://womencore.github.io/assets/coach-yellow.jpg">
+<meta property="og:image:width" content="740">
+<meta property="og:image:height" content="734">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800;900&display=swap" rel="stylesheet">
@@ -25,16 +32,111 @@
 <link rel="stylesheet" href="assets/style.css">
 <script type="application/ld+json">
 {
-  "@context":"https://schema.org",
-  "@graph":[
-    {"@type":"Organization","@id":"#org","name":"womencore","alternateName":["우먼코어","WOMENCORE"],"description":"복직근이개·산후 코어 회복 1:1 줌 코칭 브랜드","logo":"assets/logo.jpg",
-     "sameAs":["https://www.instagram.com/womencore_/","https://www.youtube.com/@womencore_coach"],"founder":{"@id":"#coach"}},
-    {"@type":"Person","@id":"#coach","name":"정혜린","jobTitle":"산후코어회복코치","worksFor":{"@id":"#org"},"image":"assets/coach-full.jpg",
-     "knowsAbout":["복직근이개","산후 코어 회복","산후운동","산전산후 필라테스","스포츠재활"]},
-    {"@type":"Service","name":"1:1 코어진단세션","serviceType":"산후 코어 회복 상담","provider":{"@id":"#org"},"areaServed":"Worldwide","offers":{"@type":"Offer","price":"10000","priceCurrency":"KRW"}},
-    {"@type":"Service","name":"womencore 8주 1:1 라이브 코칭","serviceType":"복직근이개·산후 코어 회복 프로그램","provider":{"@id":"#org"},"areaServed":"Worldwide"},
-    {"@type":"Service","name":"산후 방문수업","serviceType":"산후 코어 회복 방문 수업","provider":{"@id":"#org"},"offers":{"@type":"Offer","price":"200000","priceCurrency":"KRW"}}
-  ]
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebSite",
+   "@id": "https://womencore.github.io/#website",
+   "url": "https://womencore.github.io/",
+   "name": "womencore 우먼코어",
+   "alternateName": [
+    "우먼코어",
+    "womencore"
+   ],
+   "inLanguage": "ko"
+  },
+  {
+   "@type": "WebPage",
+   "@id": "https://womencore.github.io/#webpage",
+   "url": "https://womencore.github.io/",
+   "name": "복직근이개·산후운동 1:1 줌 코칭 | 우먼코어 womencore",
+   "isPartOf": {
+    "@id": "https://womencore.github.io/#website"
+   },
+   "primaryImageOfPage": {
+    "@type": "ImageObject",
+    "url": "https://womencore.github.io/assets/coach-yellow.jpg",
+    "width": 740,
+    "height": 734
+   },
+   "about": {
+    "@id": "https://womencore.github.io/#org"
+   }
+  },
+  {
+   "@type": "Organization",
+   "@id": "https://womencore.github.io/#org",
+   "name": "womencore",
+   "alternateName": [
+    "우먼코어",
+    "WOMENCORE"
+   ],
+   "description": "복직근이개·산후 코어 회복 1:1 줌 코칭 브랜드",
+   "logo": "https://womencore.github.io/assets/favicon-512.png",
+   "sameAs": [
+    "https://www.instagram.com/womencore_/",
+    "https://www.youtube.com/@womencore_coach"
+   ],
+   "founder": {
+    "@id": "https://womencore.github.io/#coach"
+   },
+   "url": "https://womencore.github.io/",
+   "image": "https://womencore.github.io/assets/coach-yellow.jpg"
+  },
+  {
+   "@type": "Person",
+   "@id": "https://womencore.github.io/#coach",
+   "name": "정혜린",
+   "jobTitle": "산후코어회복코치",
+   "worksFor": {
+    "@id": "https://womencore.github.io/#org"
+   },
+   "image": "https://womencore.github.io/assets/coach-yellow.jpg",
+   "knowsAbout": [
+    "복직근이개",
+    "산후 코어 회복",
+    "산후운동",
+    "산전산후 필라테스",
+    "스포츠재활"
+   ]
+  },
+  {
+   "@type": "Service",
+   "name": "1:1 코어진단세션",
+   "serviceType": "산후 코어 회복 상담",
+   "provider": {
+    "@id": "https://womencore.github.io/#org"
+   },
+   "areaServed": "Worldwide",
+   "offers": {
+    "@type": "Offer",
+    "price": "10000",
+    "priceCurrency": "KRW"
+   }
+  },
+  {
+   "@type": "Service",
+   "name": "womencore 8주 1:1 라이브 코칭",
+   "serviceType": "복직근이개·산후 코어 회복 프로그램",
+   "provider": {
+    "@id": "https://womencore.github.io/#org"
+   },
+   "areaServed": "Worldwide"
+  },
+  {
+   "@type": "Service",
+   "name": "산후 방문수업",
+   "serviceType": "산후 코어 회복 방문 수업",
+   "provider": {
+    "@id": "https://womencore.github.io/#org"
+   },
+   "offers": {
+    "@type": "Offer",
+    "price": "200000",
+    "priceCurrency": "KRW"
+   }
+  }
+ ]
 }
 </script>
 <script type="application/ld+json">
